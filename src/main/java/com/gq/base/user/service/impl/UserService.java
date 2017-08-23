@@ -16,6 +16,22 @@ public class UserService implements IUserService {
     private UserDao userDao;
     @Override
     public User getUserByID(Long id) {
+        userDao.select(id);
         return userDao.select(id);
+    }
+
+    @Override
+    public void updateCount(Long id, Integer count) {
+        synchronized (this){
+            User user=getUserByID(id);
+//            System.out.println("原始值："+user.getNumber()+",更新值："+(user.getNumber()+count));
+            user.setNumber(user.getNumber()+count);
+            userDao.updateCount(user);
+        }
+    }
+
+    @Override
+    public void updateCountAddOne(Long id) {
+        userDao.updateCountAddOne(id);
     }
 }

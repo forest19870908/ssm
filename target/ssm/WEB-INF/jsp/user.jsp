@@ -11,6 +11,6 @@
     <title>用户</title>
 </head>
 <body>
-用户名：${user.name}
+用户名：${user.name} ${user.number}
 </body>
 </html>

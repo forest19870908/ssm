@@ -5,3 +5,5 @@ CREATE TABLE `t_user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户';
 insert  into `t_user`(`id`,`user_name`,`password`) values (1,'forest','123456');
+ALTER TABLE `t_user`
+ADD COLUMN `number`  int(10) NOT NULL DEFAULT 0 COMMENT '数量' AFTER `password`;
